@@ -6,7 +6,7 @@ import java.io.StringWriter;
 public class StringUtils {
 	/**
 	* Creates and returns a {@link java.lang.String} from
-	* <code>t</code>’s stacktrace.
+	* <code>t</code>'s stacktrace.
 	* @param t Throwable whose stack trace is required
 	* @return String representing the stack trace of the exception
 	*/
