@@ -8,10 +8,27 @@
   <version>2.0.0</version>
   <packaging>pom</packaging>
 
+
+  <distributionManagement>
+    <repository>
+      <id>unrulymedia</id>
+      <name>libs-releases-local</name>
+      <url>http://unrulymedia.artifactoryonline.com/unrulymedia/libs-releases-local</url>
+    </repository>
+    <snapshotRepository>
+      <id>unrulymedia</id>
+      <name>libs-snapshots-local</name>
+      <url>http://unrulymedia.artifactoryonline.com/unrulymedia/libs-snapshots-local</url>
+    </snapshotRepository>
+  </distributionManagement>
+
   <scm>
-    <url>scm:git:git@github.com:openrtb/openrtb2x.git</url>
-    <connection>scm:git:git@github.com:openrtb/openrtb2x.git</connection>
+    <connection>scm:git:git@github.com:devunrulymedia/openrtb2x.git</connection>
+    <developerConnection>scm:git:git@github.com:devunrulymedia/openrtb2x.git</developerConnection>
+    <tag>HEAD</tag>
+    <url>https://github.com/devunrulymedia/openrtb2x</url>
   </scm>
+
 
   <modules>
     <module>common</module>
@@ -73,7 +90,7 @@
         <version>1.9.7</version>
       </dependency>
 
-      
+
       <!-- common/standard utilities -->
       <dependency>
         <groupId>commons-codec</groupId>
@@ -160,7 +177,7 @@
           <encoding>UTF-8</encoding>
         </configuration>
       </plugin>
-      <!-- 
+      <!--
 	<plugin>
 	  <groupId>org.apache.avro</groupId>
 	  <artifactId>avro-maven-plugin</artifactId>
@@ -187,7 +204,7 @@
 	    </execution>
 	  </executions>
 	</plugin>
-	--> 
+	-->
     </plugins>
     <pluginManagement>
       <plugins>
