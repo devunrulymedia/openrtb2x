@@ -1,5 +1,6 @@
 package org.openrtb.dsp.client;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
@@ -44,8 +45,8 @@ public class JsonFileBackedDAOTest
         catch (Exception e)
         {
             assertTrue("The DSPException should occur", e.getClass().getName().equals("org.openrtb.dsp.intf.model.DSPException"));
-            String msg = "dummyfile.json (The system cannot find the file specified)";
-            assertTrue("The message should match", e.getMessage().equals(msg));
+            String msg = "dummyfile.json (No such file or directory)";
+            assertEquals("The message should match", msg, e.getMessage());
         }
     }
 
