@@ -16,4 +16,5 @@ supply-side/ssp-web/target/*
 common/target/*
 
 
-
+*.iml
+/.idea
