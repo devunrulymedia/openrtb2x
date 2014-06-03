@@ -46,25 +46,27 @@ import com.github.fge.jsonschema.exceptions.ProcessingException;
 import com.github.fge.jsonschema.report.ProcessingReport;
 
 /**
- * Test examples taken from OpenRTB v2.1 specification document. 
+ * Test examples taken from OpenRTB v2.2 specification document. 
  */
-public class OpenRtbValidatorV2_1Tests {
+public class OpenRtbValidatorV2_2Tests {
 
-	private static final Logger logger = LoggerFactory.getLogger(OpenRtbValidatorV2_1Tests.class);
+	private static final Logger logger = LoggerFactory.getLogger(OpenRtbValidatorV2_2Tests.class);
 	
     @Test
     public void testBidRequestExample1SimpleBanner() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_2);
 
 		// NOTE: IABs example is invalid due to:
-    	// 1. "site.content.keywords" should be a comma delimited string, not array of strings
-    	String invalidResource = "/v2_1/bid_requests/example1_simple_banner.json";
+    	// 1. "device.ip" is not valid a valid ip address
+    	// 2. "site.cat" is not an array
+    	// 3. "site.publisher.cat" is not an array
+    	String invalidResource = "/v2_2/bid_requests/example1_simple_banner.json";
 		ProcessingReport invalidReport = validator.validate(JsonLoader.fromResource(invalidResource));
 
 		logger.info("invalid validation report: " + invalidReport);
 		assertFalse(invalidResource + " is valid", invalidReport.isSuccess());
     	
-    	String resource = "/v2_1/bid_requests/fixed/example1_simple_banner.json";
+    	String resource = "/v2_2/bid_requests/fixed/example1_simple_banner.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);
@@ -73,22 +75,21 @@ public class OpenRtbValidatorV2_1Tests {
     
     @Test
     public void testBidRequestExample2ExpandableCreative() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_2);
 
 		// NOTE: IABs example is invalid due to:
-    	// 1. "device.flashversion" should be "device.flashver"
-    	// 2. "site.sitecat" should be "site.cat"
-    	// 3. "imp.banner.expandable" should be "imp.banner.expdir"
-    	// 4. "imp.banner.iframebuster" should be "imp.iframebuster"
-    	// 5. "site.content.keyword" should be "site.content.keywords"
-    	// 6. "site.content.keywords" should be a comma delimited string, not array of strings
-    	String invalidResource = "/v2_1/bid_requests/example2_expandable_creative.json";
+    	// 1. "device.ip" is not valid a valid ip address
+    	// 2. "site.cat" is not an array
+    	// 3. "site.publisher.cat" is not an array
+    	// 4. "imp.banner.expandable" should be "imp.banner.expdir"
+    	// 5. "imp.banner.iframebuster" should be "imp.iframebuster"
+    	String invalidResource = "/v2_2/bid_requests/example2_expandable_creative.json";
 		ProcessingReport invalidReport = validator.validate(JsonLoader.fromResource(invalidResource));
 
 		logger.info("invalid validation report: " + invalidReport);
 		assertFalse(invalidResource + " is valid", invalidReport.isSuccess());
-
-		String resource = "/v2_1/bid_requests/fixed/example2_expandable_creative.json";
+    	
+		String resource = "/v2_2/bid_requests/fixed/example2_expandable_creative.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);
@@ -97,19 +98,18 @@ public class OpenRtbValidatorV2_1Tests {
 
     @Test
     public void testBidRequestExample3Mobile() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_2);
 		
-    	// NOTE: IABs example is invalid due to:
-    	// 1. "app.appcat" should be "app.cat"
-    	// 2. "app.content.keyword" should be "app.content.keywords"
-    	// 3. "app.content.keywords" should be a comma delimited string, not array of strings
-    	String invalidResource = "/v2_1/bid_requests/example3_mobile.json";
+		// NOTE: IABs example is invalid due to:
+    	// 1. "app.cat" contains an invalid category
+    	// 2. "user.yob" should be an integer
+    	String invalidResource = "/v2_2/bid_requests/example3_mobile.json";
 		ProcessingReport invalidReport = validator.validate(JsonLoader.fromResource(invalidResource));
 
 		logger.info("invalid validation report: " + invalidReport);
 		assertFalse(invalidResource + " is valid", invalidReport.isSuccess());
     	
-    	String resource = "/v2_1/bid_requests/fixed/example3_mobile.json";
+    	String resource = "/v2_2/bid_requests/fixed/example3_mobile.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);
@@ -118,29 +118,47 @@ public class OpenRtbValidatorV2_1Tests {
     
     @Test
     public void testBidRequestExample4Video() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_2);
 
 		// NOTE: IABs example is invalid due to:
     	// 1. "device.flashversion" should be "device.flashver"
     	// 2. "site.sitecat" should be "site.cat"
-    	// 3. "user.uid" should be "user.id"
-    	// 4. "imp.video.api" should be an array of integers, not an integer
-    	// 5. "imp.video.boxingallowed" should be an integer, not a boolean
-    	// 6. "imp.video.protocol should be an integer, not an array
-    	// 7. "imp.video.companionad" has erroneous "banner" labels
-    	// 8. "imp.video.companionad[0].expandable" should be "imp.video.companionad[0].expdir"
-    	// 9. "imp.video.companionad[0].iframebuster" is not legal
-    	// 10. "site.privacypolicy" should be an integer, not a boolean
-    	// 11. "site.content.keyword" should be "site.content.keywords"
-    	// 12. "site.content.keywords" should be a comma delimited string, not array of strings
-    	// 13. "site.content.season" should be a string, not an integer
-    	String invalidResource = "/v2_1/bid_requests/example4_video.json";
+    	// 3. "video.boxingallowed" should be an integer
+    	// 4. "user.uid" should be "user.id"
+    	// 5. "video.protocol" should be "video.protocols"
+    	// 6. "video.companionad.expandable" should be "video.companionad.expdir"
+    	// 7. "site.privacypolicy" should be an integer
+    	// 8. "site.content.keyword" should be "site.content.keywords"
+    	// 9. "site.content.keyword" should be a string
+    	// 9. "site.content.season" should be a string
+    	String invalidResource = "/v2_2/bid_requests/example4_video.json";
+		ProcessingReport invalidReport = validator.validate(JsonLoader.fromResource(invalidResource));
+
+		logger.info("invalid validation report: " + invalidReport);
+		assertFalse(invalidResource + " is valid", invalidReport.isSuccess());
+    	
+		String resource = "/v2_2/bid_requests/fixed/example4_video.json";
+		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
+
+		logger.info("validation report: " + report);
+		assertTrue(resource + " is not valid", report.isSuccess());
+    }
+
+    @Test
+    public void testBidRequestExample5PmpWithDirectDeal() throws IOException, ProcessingException {
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_2);
+
+		// NOTE: IABs example is invalid due to:
+    	// 1. "device.ip" is not valid a valid ip address
+    	// 2. "site.cat" is not an array
+    	// 3. "site.publisher.cat" is not an array
+    	String invalidResource = "/v2_2/bid_requests/example5_pmp_with_direct_deal.json";
 		ProcessingReport invalidReport = validator.validate(JsonLoader.fromResource(invalidResource));
 
 		logger.info("invalid validation report: " + invalidReport);
 		assertFalse(invalidResource + " is valid", invalidReport.isSuccess());
 
-		String resource = "/v2_1/bid_requests/fixed/example4_video.json";
+		String resource = "/v2_2/bid_requests/fixed/example5_pmp_with_direct_deal.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);
@@ -149,9 +167,9 @@ public class OpenRtbValidatorV2_1Tests {
 
     @Test
     public void testBidResponseExample1AdServedOnWinNotice() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_2);
 
-		String resource = "/v2_1/bid_responses/example1_ad_served_on_win_notice.json";
+		String resource = "/v2_2/bid_responses/example1_ad_served_on_win_notice.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);
@@ -160,9 +178,9 @@ public class OpenRtbValidatorV2_1Tests {
     
     @Test
     public void testBidResponseExample2VastUrlReturned() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_2);
 
-		String resource = "/v2_1/bid_responses/example2_vast_url_returned.json";
+		String resource = "/v2_2/bid_responses/example2_vast_url_returned.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);
@@ -171,17 +189,29 @@ public class OpenRtbValidatorV2_1Tests {
 
     @Test
     public void testBidResponseExample3VastXmlDocumentReturnedInline() throws IOException, ProcessingException {
-    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_1);
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_2);
 
 		// NOTE: IABs example is invalid due to:
-    	// 1. "seatbid[0].bid.impid is required but missing
-    	String invalidResource = "/v2_1/bid_responses/example3_vast_xml_document_returned_inline.json";
+    	// 1. "bid.id" is not a string
+    	// 2. "bid.impid" is not a string
+    	String invalidResource = "/v2_2/bid_responses/example3_vast_xml_document_returned_inline.json";
 		ProcessingReport invalidReport = validator.validate(JsonLoader.fromResource(invalidResource));
 
 		logger.info("invalid validation report: " + invalidReport);
 		assertFalse(invalidResource + " is valid", invalidReport.isSuccess());
 
-		String resource = "/v2_1/bid_responses/fixed/example3_vast_xml_document_returned_inline.json";
+		String resource = "/v2_2/bid_responses/fixed/example3_vast_xml_document_returned_inline.json";
+		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
+
+		logger.info("validation report: " + report);
+		assertTrue(resource + " is not valid", report.isSuccess());
+    }
+
+    @Test
+    public void testBidResponseExample4DirectDealAdServedOnWinNotice() throws IOException, ProcessingException {
+    	OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_RESPONSE, OpenRtbVersion.V2_2);
+
+		String resource = "/v2_2/bid_responses/example4_direct_deal_ad_served_on_win_notice.json";
 		ProcessingReport report = validator.validate(JsonLoader.fromResource(resource));
 
 		logger.info("validation report: " + report);

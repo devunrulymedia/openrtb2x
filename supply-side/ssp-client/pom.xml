@@ -3,7 +3,6 @@
   
   <name>Supply Side Client Reference Implementation</name>
   
-  <groupId>org.openrtb.ssp</groupId>
   <artifactId>ssp-client</artifactId>
 
   <parent>

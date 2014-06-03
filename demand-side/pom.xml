@@ -3,7 +3,6 @@
   
   <name>Demand Side Service Project</name>
   
-  <groupId>org.openrtb</groupId>
   <artifactId>dsp</artifactId>
   <packaging>pom</packaging>
 

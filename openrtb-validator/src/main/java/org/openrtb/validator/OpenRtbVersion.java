@@ -36,5 +36,5 @@ package org.openrtb.validator;
  * This enumeration represents schema versions.
  */
 public enum OpenRtbVersion {
-	V1_0, V2_0, V2_1
+	V1_0, V2_0, V2_1, V2_2
 }

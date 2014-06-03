@@ -1,16 +1,30 @@
 openrtb-validator
 =================
 
-This project provides a simple API that can be used to validate JSON bid requests and responses according to OpenRTB specifications. OpenRTB versions 1.0, 2.0, and 2.1 are fully supported.
+This project provides a simple API that can be used to validate JSON bid requests and responses according to OpenRTB specifications. OpenRTB versions 1.0, 2.0, 2.1, and 2.2 are fully supported.
 
 Provided under the New BSD License. Refer to the file LICENSE file in the root of this project for more information.
 
 Usage
 -----
 
-To ascertain whether a given JSON String, File, Reader, or Resource is a valid bid request according to OpenRTB v2.1 specifications:
+To add validator dependencies to a Maven pom.xml:
 
-    OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_1);
+    <dependency>
+        <groupId>org.openrtb</groupId>
+        <artifactId>openrtb-validator</artifactId>
+        <version>2.2.0</version>
+        <type>jar</type>
+    </dependency>
+    <dependency>
+        <groupId>com.github.fge</groupId>
+        <artifactId>json-schema-validator</artifactId>
+        <version>2.1.3</version>
+    </dependency>
+
+To ascertain whether a given JSON String, File, Reader, or Resource is a valid bid request according to OpenRTB v2.2 specifications:
+
+    OpenRtbValidator validator = OpenRtbValidatorFactory.getValidator(OpenRtbInputType.BID_REQUEST, OpenRtbVersion.V2_2);
     boolean valid = validator.isValid(json);
 
 To get a detailed validation report including reasons why the JSON is invalid:

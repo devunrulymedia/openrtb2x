@@ -3,7 +3,6 @@
   
   <name>Supply Side Client Interface</name>
   
-  <groupId>org.openrtb.ssp</groupId>
   <artifactId>ssp-intf</artifactId>
 
   <parent>

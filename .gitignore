@@ -1,20 +1,17 @@
+# Eclipse/STS files #
+.settings/
+bin/
+
+# IntelliJ files
+*.iml
+/.idea
+
 *.DS_Store
 *.class
 *.prefs
 *.project
 *.classpath
-demand-side/dsp-client/target/*
-demand-side/dsp-intf/target/*
-demand-side/dsp-core/target/*
-demand-side/dsp-web/target/*
+*.springBeans
 
-supply-side/ssp-client/target/*
-supply-side/ssp-intf/target/*
-supply-side/ssp-core/target/*
-supply-side/ssp-web/target/*
-
-common/target/*
-
-
-*.iml
-/.idea
+# Maven build folders
+target/
