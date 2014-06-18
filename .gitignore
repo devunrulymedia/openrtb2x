@@ -1,11 +1,6 @@
 # Eclipse/STS files #
 .settings/
 bin/
-
-# IntelliJ files
-*.iml
-/.idea
-
 *.DS_Store
 *.class
 *.prefs
@@ -15,3 +10,12 @@ bin/
 
 # Maven build folders
 target/
+
+#Ignore Idea generated files
+*.iws
+workspace.xml
+tasks.xml
+
+.idea
+*.iml
+

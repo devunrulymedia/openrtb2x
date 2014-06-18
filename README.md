@@ -17,13 +17,13 @@ You should be able to build the project by running 'mvn clean
 install' from the top-level directory.  The project is structured
 in the following manner:
 
-### [common](https://github.com/jm3/openrtb2x/tree/2.0/common)
+## [common](https://github.com/jm3/openrtb2x/tree/2.0/common)
 This directory is a maven project that produces a single jar file.
 This jar file contains all code that is shared between the demand-side
 and supply-side implementations (i.e. authentication/validation
 work, object models, etc.)
 
-### [demand-side](https://github.com/jm3/openrtb2x/tree/2.0/demand-side)
+## [demand-side](https://github.com/jm3/openrtb2x/tree/2.0/demand-side)
 This directory contains a series of maven projects responsible for
 the DSP behavior of this specification.  The sub-project artifact
 responsibilities include:
