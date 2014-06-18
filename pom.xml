@@ -246,19 +246,11 @@
     </pluginManagement>
   </build>
 
-<<<<<<< HEAD
-  <licenses>
-    <license>
-        <name>New BSD License</name>
-        <url>http://www.opensource.org/licenses/bsd-license.php</url>
-      </license>
-  </licenses>
-=======
 <licenses>
   <license>
     <name>New BSD License</name>
     <url>http://www.opensource.org/licenses/bsd-license.php</url>
   </license>
 </licenses>
->>>>>>> upstream/2.0
+
 </project>
