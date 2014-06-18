@@ -35,7 +35,7 @@ package org.openrtb.dsp.intf.model;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.openrtb.common.api.BidRequest;
+import org.openrtb.common.api.v_2_1.BidRequest;
 
 public class RTBRequestWrapper extends BidRequest {
 

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 // import org.openrtb.common.api.BlocklistAPI;
-import org.openrtb.common.api.OpenRTBAPI;
+import org.openrtb.common.api.v_2_1.OpenRTBAPI;
 import org.openrtb.dsp.core.DemandSideServer;
 import org.openrtb.dsp.intf.model.DemandSideDAO;
 import org.slf4j.Logger;

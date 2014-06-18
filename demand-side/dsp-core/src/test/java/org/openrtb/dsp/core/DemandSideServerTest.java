@@ -20,16 +20,16 @@ import org.apache.avro.specific.SpecificDatumWriter;
 import org.apache.avro.thrift.ThriftDatumWriter;
 import org.junit.Before;
 import org.junit.Test;
-import org.openrtb.common.api.App;
-import org.openrtb.common.api.Banner;
-import org.openrtb.common.api.BidRequest;
-import org.openrtb.common.api.Data;
-import org.openrtb.common.api.Device;
-import org.openrtb.common.api.Geo;
-import org.openrtb.common.api.Impression;
-import org.openrtb.common.api.Site;
-import org.openrtb.common.api.User;
-import org.openrtb.common.api.Video;
+import org.openrtb.common.api.v_2_1.App;
+import org.openrtb.common.api.v_2_1.Banner;
+import org.openrtb.common.api.v_2_1.BidRequest;
+import org.openrtb.common.api.v_2_1.Data;
+import org.openrtb.common.api.v_2_1.Device;
+import org.openrtb.common.api.v_2_1.Geo;
+import org.openrtb.common.api.v_2_1.Impression;
+import org.openrtb.common.api.v_2_1.Site;
+import org.openrtb.common.api.v_2_1.User;
+import org.openrtb.common.api.v_2_1.Video;
 import org.openrtb.dsp.intf.model.DSPException;
 
 /*

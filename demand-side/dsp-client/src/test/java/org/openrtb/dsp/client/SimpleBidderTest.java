@@ -6,23 +6,12 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.apache.avro.AvroRemoteException;
 import org.junit.Before;
 import org.junit.Test;
-import org.openrtb.common.api.App;
-import org.openrtb.common.api.Banner;
-import org.openrtb.common.api.BidRequest;
-import org.openrtb.common.api.BidResponse;
-import org.openrtb.common.api.Impression;
-import org.openrtb.common.api.Site;
-import org.openrtb.common.api.Video;
+import org.openrtb.common.api.v_2_1.*;
 import org.openrtb.dsp.intf.model.DSPException;
 import org.openrtb.dsp.intf.model.RTBAdvertiser;
 import org.openrtb.dsp.intf.model.RTBExchange;

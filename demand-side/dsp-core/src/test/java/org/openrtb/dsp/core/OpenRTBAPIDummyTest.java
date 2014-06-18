@@ -37,7 +37,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.avro.AvroRemoteException;
-import org.openrtb.common.api.*;
+import org.openrtb.common.api.v_2_1.*;
 import org.openrtb.dsp.intf.model.RTBAdvertiser;
 import org.openrtb.dsp.intf.model.RTBRequestWrapper;
 import org.slf4j.Logger;

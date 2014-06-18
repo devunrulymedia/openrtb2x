@@ -14,11 +14,11 @@ import java.util.Map;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.openrtb.common.api.App;
-import org.openrtb.common.api.Banner;
-import org.openrtb.common.api.BidRequest;
-import org.openrtb.common.api.Impression;
-import org.openrtb.common.api.Video;
+import org.openrtb.common.api.v_2_1.App;
+import org.openrtb.common.api.v_2_1.Banner;
+import org.openrtb.common.api.v_2_1.BidRequest;
+import org.openrtb.common.api.v_2_1.Impression;
+import org.openrtb.common.api.v_2_1.Video;
 /**
  * This class is used to test the functionality of RTBRequestWrapper class
  */

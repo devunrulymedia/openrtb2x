@@ -31,19 +31,11 @@
  */
 package org.openrtb.dsp.core;
 
-import java.io.ByteArrayOutputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.nio.ByteBuffer;
 
-import org.apache.avro.io.DatumReader;
-import org.apache.avro.io.DatumWriter;
-import org.apache.avro.io.Decoder;
-import org.apache.avro.io.DecoderFactory;
-import org.apache.avro.io.Encoder;
-import org.apache.avro.io.EncoderFactory;
+import com.google.gson.Gson;
+import org.apache.avro.io.*;
 import org.apache.avro.protobuf.ProtobufDatumReader;
 import org.apache.avro.protobuf.ProtobufDatumWriter;
 import org.apache.avro.specific.SpecificDatumReader;
@@ -51,17 +43,15 @@ import org.apache.avro.specific.SpecificDatumWriter;
 import org.apache.avro.thrift.ThriftDatumReader;
 import org.apache.avro.thrift.ThriftDatumWriter;
 import org.codehaus.jackson.map.ObjectMapper;
-import org.openrtb.common.api.BidRequest;
-import org.openrtb.common.api.BidResponse;
-import org.openrtb.common.api.OpenRTBAPI;
+import org.openrtb.common.api.v_2_1.BidRequest;
+import org.openrtb.common.api.v_2_1.BidResponse;
+import org.openrtb.common.api.v_2_1.OpenRTBAPI;
 import org.openrtb.common.util.StringUtils;
 import org.openrtb.dsp.intf.model.DSPException;
 import org.openrtb.dsp.intf.model.DemandSideDAO;
 import org.openrtb.dsp.intf.model.RTBRequestWrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import com.google.gson.Gson;
 
 public class DemandSideServer {
 	public DemandSideServer() {

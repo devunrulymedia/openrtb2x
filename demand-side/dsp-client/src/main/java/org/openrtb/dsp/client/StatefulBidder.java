@@ -32,22 +32,12 @@
 
 package org.openrtb.dsp.client;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
 import org.apache.avro.AvroRemoteException;
-import org.openrtb.common.api.Bid;
-import org.openrtb.common.api.BidRequest;
-import org.openrtb.common.api.BidResponse;
-import org.openrtb.common.api.Impression;
-import org.openrtb.common.api.OpenRTBAPI;
-import org.openrtb.common.api.SeatBid;
+import org.openrtb.common.api.v_2_1.*;
 import org.openrtb.common.util.StringUtils;
 import org.openrtb.common.util.statemachines.FSMCallback;
 import org.openrtb.common.util.statemachines.FSMException;
